@@ -18,7 +18,7 @@ class Python implements Serializable {
     }
     def installDependencies()
     {
-        script.sh "pip3 install -r requirements.txt"
+        script.sh "pip3 install -r devrequirements.txt"
     }
     def lintCheck()
     {
@@ -28,8 +28,8 @@ class Python implements Serializable {
     {
         script.sh "python3 -m pytest ."
     }
-    def IncrementVersion(String type)
+    def IncrementVersion()
     {
-        script.sh "python3 utils/versioner.py --$type"
+        script.sh "python3 utils/versioner.py --$BRANCH_NAME"
     }
 }

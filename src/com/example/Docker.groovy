@@ -12,7 +12,7 @@ class Docker implements Serializable {
         script.withCredentials([script.usernamePassword(credentialsId:'dockerhub-adina', passwordVariable: 'PASS', usernameVariable: 'USER')]){
             def matcher = script.readFile('version.toml') =~ ".\\..\\.."
             this.Version = matcher[0]
-            script.echo "$this.Version"
+            script.echo "${this.Version}"
         }
     }
 }

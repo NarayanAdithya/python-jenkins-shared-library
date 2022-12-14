@@ -4,16 +4,18 @@ package com.example
 
 class Docker implements Serializable {
     def script
-    def Version
     Docker(script){
         this.script = script
     }
-    def buildDockerImage(){
+    def buildDockerImage(String Version){
+       script.sh "docker build -t narayanadithya/pythone2e:$BRANCH_NAME-$Version ." 
+    }
+    def dockerLogin(){
         script.withCredentials([script.usernamePassword(credentialsId:'dockerhub-adina', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-            def matcher = script.readFile('version.toml') =~ ".\\..\\.."
-            this.Version = matcher[0]
-            script.echo "${this.Version}"
-            return this.version
+            script.sh "echo $script.PASS | docker login -u $script.User --password-stdin"
         }
+    }
+    def dockerPush(String Version){
+        script.sh "docker push narayanadithya/pythone2e:$BRANCH_NAME-$Version"
     }
 }

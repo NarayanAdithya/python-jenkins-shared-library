@@ -14,6 +14,8 @@ class Docker implements Serializable {
             script.echo "$matcher"
             script.echo "$matcher[0]"
             script.echo "$matcher[0][1]"
+            def version = matcher[0][1]
+            script.echo $version
         }
     }
 }

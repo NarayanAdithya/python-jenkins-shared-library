@@ -6,7 +6,6 @@ class Python implements Serializable {
     def script
     Python(script){
         this.script=script
-        this.version=script.BRANCH_NAME
     }
 
     def buildVirtualEnv()
@@ -31,7 +30,7 @@ class Python implements Serializable {
     }
     def IncrementVersion()
     {
-        script.echo "${script.BRANCH_NAME}"
-        script.sh "python3 utils/versioner.py --${script.BRANCH_NAME}"
+        script.echo "${env.BRANCH_NAME}"
+        script.sh "python3 utils/versioner.py --${env.BRANCH_NAME}"
     }
 }

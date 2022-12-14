@@ -10,7 +10,7 @@ class Docker implements Serializable {
     }
     def buildDockerImage(){
         script.withCredentials([script.usernamePassword(credentialsId:'dockerhub-adina', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-            def matcher = script.readFile('version.toml') =~ ".\..\.."
+            def matcher = script.readFile('version.toml') =~ ".\\..\\.."
             script.echo "$matcher"
         }
     }

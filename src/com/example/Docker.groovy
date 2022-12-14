@@ -13,6 +13,7 @@ class Docker implements Serializable {
             def matcher = script.readFile('version.toml') =~ ".\\..\\.."
             this.Version = matcher[0]
             script.echo "${this.Version}"
+            return this.version
         }
     }
 }

@@ -11,6 +11,9 @@ class Python implements Serializable {
     def buildVirtualEnv()
     {
         script.sh "python3 -m venv env"
+    }
+    def activateEnv()
+    {
         script.sh ". env/bin/activate"
     }
     def installDependencies()

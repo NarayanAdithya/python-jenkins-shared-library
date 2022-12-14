@@ -1,5 +1,5 @@
 import com.example.Python
 
-def call(String type){
-    return new Python(this).IncrementVersion(type)
+def call(){
+    return new Python(this).IncrementVersion()
 }

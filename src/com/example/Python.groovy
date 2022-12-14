@@ -22,11 +22,11 @@ class Python implements Serializable {
     }
     def lintCheck()
     {
-        script.sh "flake8 ."
+        script.sh "python3 -m flake8 ."
     }
     def pytestCheck()
     {
-        script.sh "pytest ."
+        script.sh "python3 -m pytest ."
     }
     def IncrementVersion(String type)
     {

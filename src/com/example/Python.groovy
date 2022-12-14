@@ -4,7 +4,7 @@ package com.example
 
 class Python implements Serializable {
     def script
-    Docker(script){
+    Python(script){
         this.script=script
     }
 

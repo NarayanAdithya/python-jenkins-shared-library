@@ -2,5 +2,5 @@ import com.example.Version
 
 def call()
 {
-    return new Version(this).getVersion()
+    return new Version(this).returnVersion()
 }

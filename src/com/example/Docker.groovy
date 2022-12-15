@@ -8,7 +8,7 @@ class Docker implements Serializable {
         this.script = script
     }
     def buildDockerImage(String Version){
-       script.sh "docker build -t narayanadithya/pythone2e:$BRANCH_NAME-$Version ." 
+       script.sh "docker build -t narayanadithya/pythone2e:${script.BRANCH_NAME}-$Version ." 
     }
     def dockerLogin(){
         script.withCredentials([script.usernamePassword(credentialsId:'dockerhub-adina', passwordVariable: 'PASS', usernameVariable: 'USER')]){
@@ -16,6 +16,6 @@ class Docker implements Serializable {
         }
     }
     def dockerPush(String Version){
-        script.sh "docker push narayanadithya/pythone2e:$BRANCH_NAME-$Version"
+        script.sh "docker push narayanadithya/pythone2e:${script.BRANCH_NAME}-$Version"
     }
 }

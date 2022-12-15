@@ -11,7 +11,7 @@ class Version implements Serializable{
     def getVersion(){
         def matcher = script.readFile('version.toml') =~ ".\\..\\.."
         this.version = matcher[0]
-        script.echo "${this.Version}"
+        script.echo "${this.version}"
         return this.version
     }
 }

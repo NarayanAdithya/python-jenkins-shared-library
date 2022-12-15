@@ -31,6 +31,6 @@ class Python implements Serializable {
     def IncrementVersion()
     {
 
-        script.sh "python3 utils/versioner.py --$BRANCH_NAME"
+        script.sh "python3 utils/versioner.py --${env.BRANCH_NAME}"
     }
 }

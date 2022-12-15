@@ -4,6 +4,7 @@ package com.example
 
 class Version implements Serializable{
     def version
+    def script
     Version(script){
         this.script=script
     }

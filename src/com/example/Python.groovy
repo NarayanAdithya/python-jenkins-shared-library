@@ -28,9 +28,8 @@ class Python implements Serializable {
     {
         script.sh "python3 -m pytest ."
     }
-    def IncrementVersion()
+    def IncrementVersion(String type)
     {
-
-        script.sh "python3 utils/versioner.py --${script.BRANCH_NAME}"
+        script.sh "python3 utils/versioner.py --${type}"
     }
 }

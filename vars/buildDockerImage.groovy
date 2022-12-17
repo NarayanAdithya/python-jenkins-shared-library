@@ -1,5 +1,5 @@
 import com.example.Docker
 
-def call(){
-    return new Docker(this).buildDockerImage()
+def call(String version){
+    return new Docker(this).buildDockerImage(version)
 }

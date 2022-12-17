@@ -7,15 +7,15 @@ class Docker implements Serializable {
     Docker(script){
         this.script = script
     }
-    def buildDockerImage(){
-       script.sh "docker build -t narayanadithya/pythone2e:${script.BRANCH_NAME}-${script.BUILD_NUMBER} ." 
+    def buildDockerImage(version){
+       script.sh "docker build -t narayanadithya/pythone2e:${version}-${script.BUILD_NUMBER} ." 
     }
     def dockerLogin(){
         script.withCredentials([script.usernamePassword(credentialsId:'dockerhub-adina', passwordVariable: 'PASS', usernameVariable: 'USER')]){
             script.sh "echo $script.PASS | docker login -u $script.User --password-stdin"
         }
     }
-    def dockerPush(){
-        script.sh "docker push narayanadithya/pythone2e:${script.BRANCH_NAME}-${script.BUILD_NUMBER}"
+    def dockerPush(version){
+        script.sh "docker push narayanadithya/pythone2e:${version}-${script.BUILD_NUMBER}"
     }
 }

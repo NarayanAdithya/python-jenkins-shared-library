@@ -1,5 +1,5 @@
 import com.example.Docker
 
-def call(){
-    return new Docker(this).dockerPush()
+def call(version){
+    return new Docker(this).dockerPush(version)
 }

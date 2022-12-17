@@ -13,7 +13,7 @@ class Git implements Serializable {
         script.sh "git add ."
         script.sh 'git commit -m "Jenkins-CI: Update Version"'
         script.withCredentials([script.usernamePassword(credentialsId:'jenkins-github', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-            script.sh "git push https://${USER}:${PASS}@github.com/${USER}/${repo_name}.git HEAD:${script.BRANCH_NAME}}"
+            script.sh "git push https://${script.USER}:${script.PASS}@github.com/${script.USER}/${repo_name}.git HEAD:${script.BRANCH_NAME}}"
         }
     }
 }

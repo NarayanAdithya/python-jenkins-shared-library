@@ -2,7 +2,7 @@
 
 package com.example
 
-class Git extends Serializable {
+class Git implements Serializable {
     def script
     Git(script){
         this.script=script

@@ -8,8 +8,8 @@ class Version implements Serializable{
     Version(script){
         this.script=script
     }
-    def returnVersion(){
-        def matcher = (script.readFile('version.toml') =~ ".\\..\\..")[0]
+    def returnVersion(String filename){
+        def matcher = (script.readFile(filename) =~ ".\\..\\..")[0]
         this.version = matcher
         script.echo "${this.version}"
         return this.version

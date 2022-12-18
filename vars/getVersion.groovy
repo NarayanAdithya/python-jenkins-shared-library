@@ -1,6 +1,6 @@
 import com.example.Version
 
-def call()
+def call(String filename)
 {
-    return new Version(this).returnVersion()
+    return new Version(this).returnVersion(filename)
 }

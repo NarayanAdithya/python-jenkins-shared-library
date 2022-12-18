@@ -8,7 +8,7 @@ class Docker implements Serializable {
         this.script = script
     }
     def buildDockerImage(version, String repo){
-       script.sh "docker build -t narayanadithya/${repo}:${version}-${script.BUILD_NUMBER} ." 
+       script.sh "docker build -t narayanadithya/${repo}:${version} ." 
     }
     def dockerLogin(){
         script.withCredentials([script.usernamePassword(credentialsId:'dockerhub-adina', passwordVariable: 'PASS', usernameVariable: 'USER')]){
@@ -16,6 +16,6 @@ class Docker implements Serializable {
         }
     }
     def dockerPush(String version, String repo){
-        script.sh "docker push narayanadithya/${repo}:${version}-${script.BUILD_NUMBER}"
+        script.sh "docker push narayanadithya/${repo}:${version}"
     }
 }
